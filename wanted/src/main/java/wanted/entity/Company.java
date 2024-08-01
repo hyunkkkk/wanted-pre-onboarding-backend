@@ -7,8 +7,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Company {
 
 	@Id
@@ -20,40 +24,8 @@ public class Company {
 
 
 	@OneToMany(mappedBy = "company")
-    private List<Recruitment> recruitments;
+    private List<Recruitment> recruitments;//하나의 회사는 여러개의 채용공고를 올릴 수 있다.
 
-
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-    public List<Recruitment> getRecruitments() {
-		return recruitments;
-	}
-	public void setRecruitments(List<Recruitment> recruitments) {
-		this.recruitments = recruitments;
-	}
 
 
 
