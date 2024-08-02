@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import wanted.dto.ApplicationResponseDTO;
 import wanted.entity.Application;
 import wanted.entity.User;
 import wanted.service.UserService;
@@ -53,10 +54,10 @@ public class UserController {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
-
     @PostMapping("/apply")
-    public ResponseEntity<Application> applyToRecruitment(@RequestParam Long recruitmentId, Long userId) {
+    public ResponseEntity<ApplicationResponseDTO> applyToRecruitment(@RequestParam Long recruitmentId, Long userId) {
         Application createdApplication = userService.applyToRecruitment(recruitmentId, userId);
-        return ResponseEntity.ok(createdApplication);
+        ApplicationResponseDTO responseDTO = new ApplicationResponseDTO(createdApplication);
+        return ResponseEntity.ok(responseDTO);
     }
 }

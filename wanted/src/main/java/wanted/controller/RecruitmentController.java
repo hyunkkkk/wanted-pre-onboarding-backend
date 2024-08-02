@@ -81,9 +81,10 @@ public class RecruitmentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Recruitment> updateRecruitment(@PathVariable Long id, @RequestBody Recruitment rec) {
+    public ResponseEntity<RecruitmentResponseDTO> updateRecruitment(@PathVariable Long id, @RequestBody Recruitment rec) {
         Recruitment recruitment = recruitmentService.updateRecruitment(id, rec);
-        return ResponseEntity.ok(recruitment);
+        RecruitmentResponseDTO responseDto = new RecruitmentResponseDTO(recruitment);
+        return ResponseEntity.ok(responseDto);
     }
 
     @DeleteMapping("/{id}")

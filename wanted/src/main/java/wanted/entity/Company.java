@@ -24,7 +24,7 @@ public class Company {
 
 
 	@OneToMany(mappedBy = "company")
-    private List<Recruitment> recruitments;//하나의 회사는 여러개의 채용공고를 올릴 수 있다.
+    private List<Recruitment> recruitments;//하나의 회사는 여러개의 채용공고를 올릴 수 있다. 회사의 다른 채용공고에 접근하기 위함.
 
 
 
