@@ -53,7 +53,6 @@ public class RecruitmentService {
         return recruitmentRepository.searchRecruitments(keyword);
     }
 
-
     public List<Recruitment> getRecruitmentsByCompany(Long companyId) {
         return recruitmentRepository.findByCompany_Id(companyId);
     }

@@ -19,8 +19,6 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;//Autoincrement
 
-    private String name;
-
     @ManyToOne
     @JoinColumn(name = "recruitment_id", nullable = false)
     private Recruitment recruitment;//여러 지원은 하나의 채용공고와 매핑될 수 있다.

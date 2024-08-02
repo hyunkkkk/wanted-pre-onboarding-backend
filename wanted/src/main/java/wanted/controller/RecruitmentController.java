@@ -61,9 +61,8 @@ public class RecruitmentController {
     }
 
 
-
     @PostMapping
-    public ResponseEntity<Recruitment> createRecruitment(@RequestBody RecruitmentRequestDTO recRequest) {
+    public ResponseEntity<RecruitmentResponseDTO> createRecruitment(@RequestBody RecruitmentRequestDTO recRequest) {
         Optional<Company> companyOpt = companyService.getCompanyById(recRequest.getCompanyId());
         if (companyOpt.isEmpty()) {
             return ResponseEntity.badRequest().build();
@@ -77,7 +76,8 @@ public class RecruitmentController {
         rec.setTech(recRequest.getTech());
 
         Recruitment createdRecruitment = recruitmentService.createRecruitment(rec);
-        return ResponseEntity.ok(createdRecruitment);
+        RecruitmentResponseDTO responseDto = new RecruitmentResponseDTO(createdRecruitment);
+        return ResponseEntity.ok(responseDto);
     }
 
     @PutMapping("/{id}")
