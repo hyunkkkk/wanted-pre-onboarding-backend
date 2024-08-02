@@ -541,19 +541,17 @@ Connection: keep-alive
 
 | Path             | Type   | Description |
 |------------------|--------|-------------|
-| `name` | `String` | 유저 이름   |
-| `email` | 'String' | 유저 이메일     |
+
 
 
 ##### Example request
 
 ``` http request
-POST http://localhost:8088/api/users/apply
+POST http://localhost:8088/api/users/apply?recruitmentId=1&userId=1
 Content-Type: application/json
 
 {
-    "recruitmentId" : "1",
-    "userId" : "1"
+
 }
 ```
 
