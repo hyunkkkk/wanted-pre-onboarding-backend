@@ -535,7 +535,7 @@ Connection: keep-alive
 
 #### 지원서 등록
 
-`POST` 요청을 사용해서 유저를 등록할 수 있습니다.
+`POST` 요청을 사용해서 지원서서를 등록할 수 있습니다.
 
 ##### Request fields
 
