@@ -29,7 +29,7 @@
 |------------------|--------|-------------|
 | `name`         | `String` | 회사 이름    |
 | `country` | `String` | 본사 위치 국가   |
-| `location` | 'String' | 회사 위치     |
+| `location` | `String` | 회사 위치     |
 
 ##### Example request
 
@@ -51,8 +51,8 @@ Content-Type: application/json
 | `id`        | `Long`          | 컴패니 ID        |
 | `name`         | `String` | 회사 이름    |
 | `country` | `String` | 본사 위치 국가   |
-| `location` | 'String' | 회사 위치     |
-| `recruitments` | 'List<Recruitment>' | 회사의 채용공고 리스트     |
+| `location` | `String` | 회사 위치     |
+| `recruitments` | `List<Recruitment>` | 회사의 채용공고 리스트     |
 
 ##### Example response
 
@@ -118,11 +118,11 @@ Content-Type: application/json
 | `id`         | `Long` | 채용공고_id    |
 | `company` | `String` | 회사 이름   |
 | `country` | `String` | 본사 위치 국가   |
-| `location` | 'String' | 회사 위치     |
-| `position` | 'String' | 직무     |
-| `reward` | 'Int' | 보상금     |
-| `tech` | 'String' | 사용 기술     |
-| `httpStatus` | 'String' | 상태코드     |
+| `location` | `String` | 회사 위치     |
+| `position` | `String` | 직무     |
+| `reward` | `Int` | 보상금     |
+| `tech` | `String` | 사용 기술     |
+| `httpStatus` | `String` | 상태코드     |
 
 
 ##### Example response
@@ -160,9 +160,9 @@ Connection: keep-alive
 | Path             | Type   | Description |
 |------------------|--------|-------------|
 | `position` | `String` | 채용 직무   |
-| `reward` | 'Int' | 보상금     |
+| `reward` |  `Int`  | 보상금     |
 | `description` | `String` | 상세설명   |
-| `tech` | 'String' | 사용 기술     |
+| `tech` | `String` | 사용 기술     |
 
 ##### Example request
 
@@ -186,11 +186,11 @@ Content-Type: application/json
 | `id`         | `Long` | 채용공고_id    |
 | `company` | `String` | 회사 이름   |
 | `country` | `String` | 본사 위치 국가   |
-| `location` | 'String' | 회사 위치     |
-| `position` | 'String' | 직무     |
-| `reward` | 'Int' | 보상금     |
-| `tech` | 'String' | 사용 기술     |
-| `httpStatus` | 'String' | 상태코드     |
+| `location` | `String` | 회사 위치     |
+| `position` | `String` | 직무     |
+| `reward` | `Int` | 보상금     |
+| `tech` | `String` | 사용 기술     |
+| `httpStatus` | `String` | 상태코드     |
 
 
 ##### Example response
@@ -295,13 +295,13 @@ Content-Type: application/json
 | `id`         | `Long` | 채용공고_id    |
 | `company` | `String` | 회사 이름   |
 | `country` | `String` | 본사 위치 국가   |
-| `location` | 'String' | 회사 위치     |
-| `position` | 'String' | 직무     |
-| `reward` | 'Int' | 보상금     |
-| `tech` | 'String' | 사용 기술     |
-| `description` | 'String' | 상세설명     |
-| `otherRecruitmentIds` | 'List<Long>' | 회사의 다른 채용공고_id     |
-| `httpStatus` | 'String' | 상태코드     |
+| `location` | `String` | 회사 위치     |
+| `position` | `String` | 직무     |
+| `reward` | `Int` | 보상금     |
+| `tech` | `String` | 사용 기술     |
+| `description` | `String` | 상세설명     |
+| `otherRecruitmentIds` | `List<Long>` | 회사의 다른 채용공고_id     |
+| `httpStatus` | `String` | 상태코드     |
 
 
 ##### Example response
@@ -372,13 +372,13 @@ Content-Type: application/json
 | `id`         | `Long` | 채용공고_id    |
 | `company` | `String` | 회사 이름   |
 | `country` | `String` | 본사 위치 국가   |
-| `location` | 'String' | 회사 위치     |
-| `position` | 'String' | 직무     |
-| `reward` | 'Int' | 보상금     |
-| `tech` | 'String' | 사용 기술     |
-| `description` | 'String' | 상세설명     |
-| `otherRecruitmentIds` | 'List<Long>' | 회사의 다른 채용공고_id     |
-| `httpStatus` | 'String' | 상태코드     |
+| `location` |  `String` | 회사 위치     |
+| `position` | `String` | 직무     |
+| `reward` | `Int` | 보상금     |
+| `tech` | `String` | 사용 기술     |
+| `description` | `String` | 상세설명     |
+| `otherRecruitmentIds` | `List<Long>` | 회사의 다른 채용공고_id     |
+| `httpStatus` | `String` | 상태코드     |
 
 
 ##### Example response
@@ -442,11 +442,11 @@ Content-Type: application/json
 | `id`         | `Long` | 채용공고_id    |
 | `company` | `String` | 회사 이름   |
 | `country` | `String` | 본사 위치 국가   |
-| `location` | 'String' | 회사 위치     |
-| `position` | 'String' | 직무     |
-| `reward` | 'Int' | 보상금     |
-| `tech` | 'String' | 사용 기술     |
-| `httpStatus` | 'String' | 상태코드     |
+| `location` | `String` | 회사 위치     |
+| `position` | `String` | 직무     |
+| `reward` | `Int` | 보상금     |
+| `tech` | `String` | 사용 기술     |
+| `httpStatus` | `String` | 상태코드     |
 
 
 ##### Example response
@@ -486,7 +486,7 @@ Connection: keep-alive
 | Path             | Type   | Description |
 |------------------|--------|-------------|
 | `name` | `String` | 유저 이름   |
-| `email` | 'String' | 유저 이메일     |
+| `email` | `String` | 유저 이메일     |
 
 
 ##### Example request
