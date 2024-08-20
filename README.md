@@ -91,9 +91,9 @@ Connection: keep-alive
 |------------------|--------|-------------|
 | `companyId`         | `Long` | 회사_id    |
 | `position` | `String` | 채용 직무   |
-| `reward` | 'Int' | 보상금     |
+| `reward` | `Int` | 보상금     |
 | `description` | `String` | 상세설명   |
-| `tech` | 'String' | 사용 기술     |
+| `tech` | `String` | 사용 기술     |
 
 ##### Example request
 
