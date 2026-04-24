@@ -44,11 +44,25 @@ public class RecruitmentController {
 
 
     @GetMapping("/{id}")
-    public RecruitmentDetailResponseDTO getRecruitmentDetail(@PathVariable Long id) {
-        Optional<Recruitment> recruitment = recruitmentService.getRecruitmentById(id);
-        return recruitment
-                .map(RecruitmentDetailResponseDTO::new)
-                .orElse(null);
+    public ResponseEntity<RecruitmentDetailResponseDTO> getRecruitmentDetail(@PathVariable Long id) {
+        // 1. 해당 공고 상세 정보 가져오기
+        Recruitment recruitment = recruitmentService.getRecruitmentById(id)
+                .orElseThrow(() -> new RuntimeException("해당 채용공고가 없습니다."));
+
+        // 2. 이 회사의 다른 공고 리스트 가져오기 (우리가 만든 '10개 제한' 서비스 호출!)
+        List<Recruitment> otherRecruitments = recruitmentService.getRecruitmentsByCompany(recruitment.getCompany().getId());
+
+        // 3. 다른 공고들의 ID만 추출
+        List<Long> otherIds = otherRecruitments.stream()
+                .map(Recruitment::getId)
+                .filter(recId -> !recId.equals(id)) // 현재 보고 있는 공고 ID는 제외하는 센스!
+                .collect(Collectors.toList());
+
+        // 4. DTO 생성 및 데이터 세팅
+        RecruitmentDetailResponseDTO response = new RecruitmentDetailResponseDTO(recruitment);
+        response.setOtherRecruitmentIds(otherIds); // DTO에 setter가 있다면 사용
+
+        return ResponseEntity.ok(response);
     }
 
 

@@ -53,6 +53,10 @@ public class RecruitmentDetailResponseDTO {//채용공고 상세페이지 조회
 
     }
 
+    public void setOtherRecruitmentIds(List<Long> otherRecruitmentIds) {
+        this.otherRecruitmentIds = otherRecruitmentIds;
+    }
+
 
 }
 

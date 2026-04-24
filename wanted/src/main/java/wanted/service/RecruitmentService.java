@@ -11,6 +11,10 @@ import wanted.repository.ApplicationRepository;
 import wanted.repository.RecruitmentRepository;
 import wanted.repository.UserRepository;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Page;
+
 @Service
 public class RecruitmentService {
 
@@ -30,6 +34,11 @@ public class RecruitmentService {
 
     public Optional<Recruitment> getRecruitmentById(Long id) {
         return recruitmentRepository.findById(id);
+    }
+    public List<Recruitment> getRecruitmentsByCompany(Long companyId) {
+        // 첫 페이지(0), 10개, ID 역순 정렬
+        PageRequest pageRequest = PageRequest.of(0, 10, Sort.by("id").descending());
+        return recruitmentRepository.findByCompany_Id(companyId, pageRequest).getContent();
     }
 
     public Recruitment createRecruitment(Recruitment recruitment) {
@@ -53,7 +62,4 @@ public class RecruitmentService {
         return recruitmentRepository.searchRecruitments(keyword);
     }
 
-    public List<Recruitment> getRecruitmentsByCompany(Long companyId) {
-        return recruitmentRepository.findByCompany_Id(companyId);
-    }
 }
