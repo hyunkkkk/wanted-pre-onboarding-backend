@@ -14,6 +14,7 @@ import wanted.repository.UserRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Slice;
 
 @Service
 public class RecruitmentService {
@@ -35,10 +36,14 @@ public class RecruitmentService {
     public Optional<Recruitment> getRecruitmentById(Long id) {
         return recruitmentRepository.findById(id);
     }
+
     public List<Recruitment> getRecruitmentsByCompany(Long companyId) {
-        // 첫 페이지(0), 10개, ID 역순 정렬
+        // Slice를 사용하면 '전체 개수'를 세지 않고, 다음 데이터가 있는지만 확인(Limit 11)합니다.
         PageRequest pageRequest = PageRequest.of(0, 10, Sort.by("id").descending());
-        return recruitmentRepository.findByCompany_Id(companyId, pageRequest).getContent();
+
+        Slice<Recruitment> recruitmentSlice = recruitmentRepository.findByCompany_Id(companyId, pageRequest);
+
+        return recruitmentSlice.getContent();
     }
 
     public Recruitment createRecruitment(Recruitment recruitment) {

@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice; // 이 줄을 추가하세요!
 
 import wanted.entity.Recruitment;
 @Repository
@@ -32,9 +33,9 @@ public interface RecruitmentRepository extends JpaRepository<Recruitment, Long>{
     List<Recruitment> searchRecruitments(@Param("keyword") String keyword);
 
     @Query("SELECT r FROM Recruitment r WHERE r.company.id = :companyId")
-	List<Recruitment> findByCompany_Id(Long companyId);
+    List<Recruitment> findByCompany_Id(Long companyId);
 
     @Query("SELECT r FROM Recruitment r WHERE r.company.id = :companyId")
     // 반환 타입을 Page로 바꾸고 Pageable 파라미터를 추가합니다.
-    Page<Recruitment> findByCompany_Id(@Param("companyId") Long companyId, Pageable pageable);
+    Slice<Recruitment> findByCompany_Id(@Param("companyId") Long companyId, Pageable pageable);
 }
